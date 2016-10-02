@@ -1,0 +1,17 @@
+.text-button {
+  border-radius: 5px;
+  border: none;
+  background-color: #209e91;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  cursor: pointer;
+  color: #fff;
+  margin: 23px 0 12px 12px;
+  -webkit-transition: all .1s ease;
+  -moz-transition: all .1s ease;;
+  -ms-transition: all .1s ease;;
+  -o-transition: all .1s ease;;
+  transition: all .1s ease;;
+}
+

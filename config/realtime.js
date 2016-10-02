@@ -1,0 +1,13 @@
+module.exports = {
+  primus:{
+    options:{
+      //these options are passed directly to the Primus constructor: https://github.com/primus/primus#getting-started
+    }
+  }
+};
+
+// Client
+//
+// You can include the primus client library as a script:
+//
+//   <script src="/primus/primus.js"></script>
