@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './style.css'
 
 
 class ValidationInput extends Component {
@@ -60,7 +61,7 @@ class ValidationInput extends Component {
   }
 
   isValid() {
-    return (!this.state.valid && !this.state.pristine) ? 'form-element__input--invalid' : '';
+    return (!this.state.valid && !this.state.pristine) ? 'input--invalid' : '';
   }
 
   handleFocus() {
@@ -76,15 +77,15 @@ class ValidationInput extends Component {
   }
 
   isFocused(){
-    return this.state.focus ? 'form-element__input--focused' : '';
+    return this.state.focus ? 'input--focused' : '';
   }
 
   render() {
     return (
         <div className="form-group clearfix">
-          <label className="col-sm-3 form-element__label" htmlFor={this.props.inputId}>{this.props.text}</label>
+          <label className="col-sm-3 input__label" htmlFor={this.props.inputId}>{this.props.text}</label>
           <div className="col-sm-9">
-            <input className={`form-element__input ${this.isFocused()} ${this.isValid()}`}
+            <input className={`input ${this.isFocused()} ${this.isValid()}`}
                    id={this.props.inputId}
                    placeholder={this.props.text}
                    onFocus={this.handleFocus}

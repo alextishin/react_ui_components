@@ -19,21 +19,18 @@ module.exports = {
       publicPath: '/dist/'
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-      // new ExtractTextPlugin('[name]-[hash].css', {
-      //   allChunks: true,
-      // }),
+      new webpack.HotModuleReplacementPlugin()
     ],
     module: {
-      loaders: [{
+      loaders: [
+      {
         test: /\.js$/,
         loader: 'babel-loader',
-        plugins: ['transform-runtime']
+        query: {
+          "presets": ["es2015", "stage-0", "react"],
+          "plugins": ["react-hot-loader/babel"]
+        }
       },
-      // {
-      //   test: /\.css$/,
-      //   loader: ExtractTextPlugin.extract('css?sourceMap')
-      // },
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
@@ -50,15 +47,10 @@ module.exports = {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: "url-loader?limit=100000000000"
       },
-      { 
+      {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: "url-loader?limit=10000000000"
       },
-
-        // {
-      //   test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      //   loader: 'file-loader'
-      // },
       {
         test: /\.(png|jpg)$/,
         loader: 'url?limit=100000000'

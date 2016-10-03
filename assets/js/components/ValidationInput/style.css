@@ -1,0 +1,23 @@
+.input {
+  border-radius: 5px;
+  color: #fff;
+  background-color: rgba(0,0,0,.15);
+  padding: 6px 12px;
+  height: 48px;
+  border: 1px solid transparent;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input__label {
+  color: #fff;
+  line-height: 48px;
+}
+
+.input--focused {
+  border: 1px solid #209e91;
+}
+
+.input--invalid {
+  border: 1px solid #c50808;
+}

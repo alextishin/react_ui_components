@@ -4,6 +4,7 @@ import rootReducer from '../reducers'
 
 export default function configureStore(initialState) {
   const store = createStore(rootReducer, initialState)
+  
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
@@ -12,5 +13,5 @@ export default function configureStore(initialState) {
     })
   }
 
-  return store
+  return store;
 }

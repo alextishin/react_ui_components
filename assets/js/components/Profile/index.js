@@ -4,6 +4,7 @@ import ValidationInput from '../../components/ValidationInput'
 import Checkbox from '../../components/Checkbox'
 import RadioGroup from '../../components/RadioGroup'
 import Radio from '../../components/Radio'
+import Combo from '../../components/Combo'
 
 
 class Profile extends Component {
@@ -32,11 +33,11 @@ class Profile extends Component {
                   <div className="row">
                     <div className="col-md-6">
                       <ValidationInput inputId="name" text="Имя" name="name"/>
+                      <Combo labelText="Combo 1"/>
                       <Checkbox labelText="Checkbox 1" name="checkbox"/>
                       <RadioGroup>
                         <Radio name="radio1" labelText="Radio 1" value="r1"/>
                         <Radio name="radio1" labelText="Radio 2" value="r2"/>
-                        <Radio name="radio1" labelText="Radio 3" value="r3"/>
                       </RadioGroup>
                     </div>
                     <div className="col-md-6"></div>
@@ -46,7 +47,6 @@ class Profile extends Component {
             </div>
           </div>
         </div>
-
       </div>
     )
   }

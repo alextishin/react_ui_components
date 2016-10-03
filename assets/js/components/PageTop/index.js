@@ -13,10 +13,8 @@ class PageTop extends Component {
   renderUserSection() {
     return (
         <div className="">
-          <a className="" >
-            <img src={ Person }/>
-          </a>
-      </div>
+          sdsd
+        </div>
     );
   }
 
