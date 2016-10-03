@@ -1,20 +1,25 @@
+.combo {
+
+}
+
+
 .combo__label {
   color: #fff;
-  line-height: 48px;
+  line-height: 38px;
 }
 
 .combo-input {
-  position: relative;
   display: inline-block;
   width: 100%;
 }
 
 .combo-input__field {
+  position: relative;
   border-radius: 5px;
   color: #fff;
   background-color: rgba(0,0,0,.15);
   padding: 6px 12px;
-  height: 48px;
+  height: 38px;
   border: 1px solid transparent;
   width: 100%;
   box-sizing: border-box;
@@ -48,4 +53,17 @@
 .combo-input__icon i {
   display: inline-block;
   vertical-align: middle;
+}
+
+.list {
+  position: absolute;
+  width: 98%;
+  height: 100px;
+  background: #fff;
+  left: 1%;
+  top: 100%;
+}
+
+.list--hidden {
+  display: none;
 }
