@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ValidationForm from '../../components/ValidationForm'
 import ValidationInput from '../../components/ValidationInput'
-import Button from '../../components/Button'
 import Checkbox from '../../components/Checkbox'
+import RadioGroup from '../../components/RadioGroup'
+import Radio from '../../components/Radio'
 
 
 class Profile extends Component {
@@ -32,6 +33,11 @@ class Profile extends Component {
                     <div className="col-md-6">
                       <ValidationInput inputId="name" text="Имя" name="name"/>
                       <Checkbox labelText="Checkbox 1" name="checkbox"/>
+                      <RadioGroup>
+                        <Radio name="radio1" labelText="Radio 1" value="r1"/>
+                        <Radio name="radio1" labelText="Radio 2" value="r2"/>
+                        <Radio name="radio1" labelText="Radio 3" value="r3"/>
+                      </RadioGroup>
                     </div>
                     <div className="col-md-6"></div>
                   </div>
