@@ -39,7 +39,6 @@ class RadioGroup extends Component {
     return (
       <div>
         {this.props.children}
-        <button type="button" onClick={() => {console.log(this.getValue())}}>Test</button>
       </div>
     )
   }

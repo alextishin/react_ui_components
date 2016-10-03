@@ -11,6 +11,8 @@ module.exports = {
       root: path.join(__dirname, '../')
     },
     entry: [
+      'webpack-dev-server/client', // WebpackDevServer host and port
+      'webpack/hot/only-dev-server',
       './assets/js/index.js'
     ],
     output: {
@@ -55,6 +57,11 @@ module.exports = {
         test: /\.(png|jpg)$/,
         loader: 'url?limit=100000000'
       }]
+    },
+
+    devServer: {
+      host: 'localhost',
+      port: '3000'
     }
   }
 }
