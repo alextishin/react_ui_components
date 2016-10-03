@@ -33,7 +33,14 @@ class Profile extends Component {
                   <div className="row">
                     <div className="col-md-6">
                       <ValidationInput inputId="name" text="Имя" name="name"/>
-                      <Combo labelText="Combo 1"/>
+                      <Combo
+                        labelText="Combo 1"
+                        options={[
+                          {id: 1, value: "value1"},
+                          {id: 2, value: "value2"},
+                          {id: 3, value: "value3"}
+                        ]}
+                      />
                       <Checkbox labelText="Checkbox 1" name="checkbox"/>
                       <RadioGroup>
                         <Radio name="radio1" labelText="Radio 1" value="r1"/>
