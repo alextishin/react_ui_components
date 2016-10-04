@@ -37,7 +37,7 @@ class Switcher extends Component {
         <div className="switcher__overflow">
           <div className="switcher__container" ref="switchContainer">
             <span className="switcher__btn switcher__btn--on">
-              <span className="switcher__text">ON</span>
+              <span className="switcher__text switcher__text--on">ON</span>
             </span>
             <span className="switcher__btn"></span>
             <span className="switcher__btn switcher__btn--off">
