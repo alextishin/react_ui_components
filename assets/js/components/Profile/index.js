@@ -5,6 +5,7 @@ import Checkbox from '../../components/Checkbox'
 import RadioGroup from '../../components/RadioGroup'
 import Radio from '../../components/Radio'
 import Combo from '../../components/Combo'
+import Switcher from '../../components/Switcher'
 
 
 class Profile extends Component {
@@ -41,6 +42,7 @@ class Profile extends Component {
                           {id: 3, value: "value3"}
                         ]}
                       />
+                      <Switcher />
                       <Checkbox labelText="Checkbox 1" name="checkbox"/>
                       <RadioGroup>
                         <Radio name="radio1" labelText="Radio 1" value="r1"/>

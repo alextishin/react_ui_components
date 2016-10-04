@@ -79,31 +79,33 @@ class Combo extends Component {
 
   render(){
     return (
-      <div className="combo">
-        <div className="clearfix">
-          <label className="col-sm-3 combo__label" onClick={this.handleLabelClick}>{this.props.labelText}</label>
-          <div className="col-sm-9">
-            <div className="combo-input">
-              <button
-                ref="comboInput"
-                onClick={this.handleClick}
-                type="button"
-                className={`combo-input__field ${this.isFocused()}`}
-                onBlur={this.handleBlur}
-                onFocus={this.handleFocus}
-              >
-                {this.getValue()}
-                <div className="combo-input__btn">
-                  <div className="combo-input__icon">
-                    <i className="fa fa-angle-down fa-2x" aria-hidden="true"></i>
+      <div className="form-group">
+        <div className="combo">
+          <div className="clearfix">
+            <label className="col-sm-3 combo__label" onClick={this.handleLabelClick}>{this.props.labelText}</label>
+            <div className="col-sm-9">
+              <div className="combo-input">
+                <button
+                  ref="comboInput"
+                  onClick={this.handleClick}
+                  type="button"
+                  className={`combo-input__field ${this.isFocused()}`}
+                  onBlur={this.handleBlur}
+                  onFocus={this.handleFocus}
+                >
+                  {this.getValue()}
+                  <div className="combo-input__btn">
+                    <div className="combo-input__icon">
+                      <i className="fa fa-angle-down fa-2x" aria-hidden="true"></i>
+                    </div>
                   </div>
-                </div>
-                <div className={`list ${this.isOpen()}`}>
-                  <ul className="list__body">
-                    {this.renderItems()}
-                  </ul>
-                </div>
-              </button>
+                  <div className={`list ${this.isOpen()}`}>
+                    <ul className="list__body">
+                      {this.renderItems()}
+                    </ul>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>
