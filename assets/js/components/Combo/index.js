@@ -9,10 +9,14 @@ class Combo extends Component {
 
     this.state = {
       open: false,
+      focus: false,
       value: ""
     }
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleLabelClick = this.handleLabelClick.bind(this);
     this.setValue = this.setValue.bind(this);
   }
 
@@ -28,6 +32,29 @@ class Combo extends Component {
     this.setState({
       open: !this.state.open
     })
+  }
+
+  handleLabelClick() {
+    let input = this.refs.comboInput;
+
+    input.focus();
+  }
+
+  handleBlur() {
+    this.setState({
+      open: false,
+      focus: false
+    })
+  }
+
+  handleFocus() {
+    this.setState({
+      focus: true
+    })
+  }
+
+  isFocused() {
+    return this.state.focus ? 'combo-input__field--focused' : ''
   }
 
   renderItems() {
@@ -54,10 +81,17 @@ class Combo extends Component {
     return (
       <div className="combo">
         <div className="clearfix">
-          <label className="col-sm-3 combo__label" htmlFor={this.props.inputId}>{this.props.labelText}</label>
+          <label className="col-sm-3 combo__label" onClick={this.handleLabelClick}>{this.props.labelText}</label>
           <div className="col-sm-9">
             <div className="combo-input">
-              <button onClick={this.handleClick} type="button" className="combo-input__field">
+              <button
+                ref="comboInput"
+                onClick={this.handleClick}
+                type="button"
+                className={`combo-input__field ${this.isFocused()}`}
+                onBlur={this.handleBlur}
+                onFocus={this.handleFocus}
+              >
                 {this.getValue()}
                 <div className="combo-input__btn">
                   <div className="combo-input__icon">

@@ -11,7 +11,7 @@ module.exports = {
       root: path.join(__dirname, '../')
     },
     entry: [
-      'webpack-dev-server/client', // WebpackDevServer host and port
+      'webpack-dev-server/client?http://localhost:3000', // WebpackDevServer host and port
       'webpack/hot/only-dev-server',
       './assets/js/index.js'
     ],
@@ -60,8 +60,6 @@ module.exports = {
     },
 
     devServer: {
-      host: 'localhost',
-      port: '3000',
       hot: true
     }
   }
