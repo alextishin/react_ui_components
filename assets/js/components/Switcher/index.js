@@ -14,15 +14,18 @@ class Switcher extends Component {
   }
 
   toggle(){
-    var elem = this.refs.switcContainer;
+    var switcher = this.refs.switcher;
+    var container = this.refs.switchContainer;
 
     this.setState({
       value: !this.state.value
     }, function () {
       if(this.state.value) {
-        elem.style.marginLeft = "0";
+        container.style.marginLeft = "0";
+        switcher.style.borderColor = "#209e91"
       } else {
-        elem.style.marginLeft = "-50px";
+        container.style.marginLeft = "-50px";
+        switcher.style.borderColor = "#fff"
       }
     });
   }
@@ -30,9 +33,9 @@ class Switcher extends Component {
 
   render() {
     return (
-      <div className="switcher">
+      <div className="switcher" onClick={this.toggle} ref="switcher">
         <div className="switcher__overflow">
-          <div className="switcher__container" onClick={this.toggle} ref="switcContainer">
+          <div className="switcher__container" ref="switchContainer">
             <span className="switcher__btn switcher__btn--on">
               <span className="switcher__text">ON</span>
             </span>
