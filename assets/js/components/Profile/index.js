@@ -6,6 +6,7 @@ import RadioGroup from '../../components/RadioGroup'
 import Radio from '../../components/Radio'
 import Combo from '../../components/Combo'
 import Switcher from '../../components/Switcher'
+import Panel from '../../components/Panel'
 
 
 class Profile extends Component {
@@ -26,8 +27,7 @@ class Profile extends Component {
       <div className="content">
         <div className="content__block">
           <h1 className="content__header">Профиль</h1>
-          <div className="panel">
-            <div className="panel__body">
+          <Panel>
               <ValidationForm rules={formRules}>
                 <div className="row">
                   <h3 className="info-header">Основная информация</h3>
@@ -54,8 +54,8 @@ class Profile extends Component {
                   </div>
                 </div>
               </ValidationForm>
-            </div>
-          </div>
+          </Panel>
+          <Panel></Panel>
         </div>
       </div>
     )
