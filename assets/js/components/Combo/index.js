@@ -21,7 +21,16 @@ class Combo extends Component {
   }
 
   propTypes: {
-    options: React.PropTypes.array.isRequired
+    options: React.PropTypes.array.isRequired,
+    name: React.PropTypes.string.isRequired
+  }
+
+  static contextTypes = {
+    attachToForm: React.PropTypes.func
+  }
+
+  componentWillMount() {
+    this.context.attachToForm(this);
   }
 
   isOpen() {

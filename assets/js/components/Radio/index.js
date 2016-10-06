@@ -17,13 +17,17 @@ class Radio extends Component {
   }
 
   static contextTypes = {
-    setGroupValue: React.PropTypes.func
+    setGroupValue: React.PropTypes.func,
   }
+  
 
   setValue() {
     this.context.setGroupValue(this.props.value);
   }
 
+  getValue() {
+    return this.state.value;
+  }
 
   render() {
     return (

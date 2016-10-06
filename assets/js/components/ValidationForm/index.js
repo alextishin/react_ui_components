@@ -105,8 +105,8 @@ class ValidationForm extends Component {
   getValues() {
     return this.inputs.reduce((data, component) => {
       var name = component.props.name;
-      console.log(name);
-      data[name] = component.state.value;
+
+      data[name] = component.getValue();
       return data;
     }, {});
   }
@@ -116,6 +116,7 @@ class ValidationForm extends Component {
     return (
       <form>
         {this.props.children}
+        <button type="button" onClick={()=>{console.log(this.getValues())}}>TEST</button>
       </form>
     )
   }

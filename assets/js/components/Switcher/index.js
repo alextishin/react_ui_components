@@ -13,6 +13,18 @@ class Switcher extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
+  propTypes: {
+    name: React.PropTypes.string.isRequired
+  }
+
+  static contextTypes = {
+    attachToForm: React.PropTypes.func
+  }
+
+  componentWillMount() {
+    this.context.attachToForm(this);
+  }
+
   toggle(){
     var switcher = this.refs.switcher;
     var container = this.refs.switchContainer;
@@ -30,10 +42,14 @@ class Switcher extends Component {
     });
   }
 
+  getValue(){
+    return this.state.value;
+  }
+
 
   render() {
     return (
-      <div className="switcher" onClick={this.toggle} ref="switcher">
+      <div className="switcher" name={this.props.name} onClick={this.toggle} ref="switcher">
         <div className="switcher__overflow">
           <div className="switcher__container" ref="switchContainer">
             <span className="switcher__btn switcher__btn--on">

@@ -12,11 +12,18 @@ class RadioGroup extends Component {
 
   componentWillMount () {
     this.radio = [];
+
+    this.context.attachToForm(this);
   }
 
   static childContextTypes = {
     setGroupValue: React.PropTypes.func
   }
+
+  static contextTypes = {
+    attachToForm: React.PropTypes.func
+  }
+  
 
   getChildContext () {
     return {

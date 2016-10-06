@@ -36,15 +36,16 @@ class Profile extends Component {
                       <ValidationInput inputId="name" text="Имя" name="name"/>
                       <Combo
                         labelText="Combo 1"
+                        name="combo"
                         options={[
                           {id: 1, value: "value1"},
                           {id: 2, value: "value2"},
                           {id: 3, value: "value3"}
                         ]}
                       />
-                      <Switcher />
+                      <Switcher name="switcher"/>
                       <Checkbox labelText="Checkbox 1" name="checkbox"/>
-                      <RadioGroup>
+                      <RadioGroup name="radio1">
                         <Radio name="radio1" labelText="Radio 1" value="r1"/>
                         <Radio name="radio1" labelText="Radio 2" value="r2"/>
                       </RadioGroup>

@@ -47,7 +47,6 @@ class ValidationInput extends Component {
     this.setState({
       value: e.target.value
     }, function () {
-      console.log(this);
       this.context.validate(this);
     });
   }
