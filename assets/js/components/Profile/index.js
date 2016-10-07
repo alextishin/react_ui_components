@@ -7,6 +7,7 @@ import Radio from '../../components/Radio'
 import Combo from '../../components/Combo'
 import Switcher from '../../components/Switcher'
 import Panel from '../../components/Panel'
+import Window from '../../components/Window'
 
 
 class Profile extends Component {
