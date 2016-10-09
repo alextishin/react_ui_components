@@ -28,6 +28,8 @@ class Profile extends Component {
       <div className="content">
         <div className="content__block">
           <h1 className="content__header">Профиль</h1>
+          <Window width={400} height={100} modal={false}/>
+
           <Panel>
               <ValidationForm rules={formRules}>
                 <div className="row">

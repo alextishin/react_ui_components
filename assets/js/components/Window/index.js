@@ -9,10 +9,38 @@ class Window extends Component {
 
   propTypes:{
     width: React.PropTypes.integer,
-    height: React.PropTypes.integer
+    height: React.PropTypes.integer,
+    modal: React.PropTypes.boolean
+  }
+
+  defaultProps = {
+    modal: false
+  };
+
+  renderModal(styles){
+    return (
+      <div className="modal-overflow">
+        <div className="window" style={styles}>
+          {this.props.children}
+        </div>
+      </div>
+    )
+  }
+
+  renderDefault(styles) {
+    
+    return (
+      <div className="window window--notmodal" style={styles}>
+        {this.props.children}
+      </div>
+    )
   }
 
 
+  isModal () {
+    return this.props.modal;
+
+  }
 
   render() {
     let styles = {
@@ -20,11 +48,11 @@ class Window extends Component {
       height: this.props.height
     };
 
-    return (
-      <div className="modal-overflow">
-        <div className="window" style={styles}></div>
-      </div>
-    )
+    let window = this.isModal() ?
+      this.renderModal(styles) :
+      this.renderDefault(styles);
+
+    return window;
   }
 }
 

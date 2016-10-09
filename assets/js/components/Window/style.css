@@ -20,3 +20,11 @@
   border-radius: 5px;
   background-color: #fff;
 }
+
+.window--notmodal {
+  position: fixed;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+
