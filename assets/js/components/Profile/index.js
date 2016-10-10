@@ -8,6 +8,7 @@ import Combo from '../../components/Combo'
 import Switcher from '../../components/Switcher'
 import Panel from '../../components/Panel'
 import Window from '../../components/Window'
+import Tab from '../../components/Tab'
 
 
 class Profile extends Component {
@@ -28,8 +29,6 @@ class Profile extends Component {
       <div className="content">
         <div className="content__block">
           <h1 className="content__header">Профиль</h1>
-          <Window width={400} height={100} modal={false}/>
-
           <Panel>
               <ValidationForm rules={formRules}>
                 <div className="row">
@@ -58,7 +57,15 @@ class Profile extends Component {
                 </div>
               </ValidationForm>
           </Panel>
-          <Panel></Panel>
+          <Panel>
+            <Tab tabs={
+              [
+                {id: 1, title: "Tab 1"},
+                {id: 2, title: "Tab 2"},
+                {id: 3, title: "Tab 3"}
+              ]
+            }/>
+          </Panel>
         </div>
       </div>
     )
