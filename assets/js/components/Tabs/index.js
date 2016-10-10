@@ -40,6 +40,10 @@ class Tabs extends Component {
     }.bind(this))
   }
 
+  renderContent () {
+    return this.props.children[this.state.active];
+  }
+
   handleClick(index, e) {
     e.preventDefault();
     this.setState({
@@ -55,7 +59,7 @@ class Tabs extends Component {
           {this.renderBar()}
         </ul>
         <div className="tab-content">
-          {this.props.children}
+          {this.renderContent()}
         </div>
       </div>
     )

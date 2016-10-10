@@ -60,9 +60,9 @@ class Profile extends Component {
           </Panel>
           <Panel>
             <Tabs>
-              <TabPanel title="Tab 1"></TabPanel>
-              <TabPanel title="Tab 2"></TabPanel>
-              <TabPanel title="Tab 3"></TabPanel>
+              <TabPanel title="Tab 1">Tab1</TabPanel>
+              <TabPanel title="Tab 2">Tab2</TabPanel>
+              <TabPanel title="Tab 3">Tab3</TabPanel>
             </Tabs>
           </Panel>
         </div>
