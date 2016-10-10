@@ -9,8 +9,12 @@
   display: inline-block;
 }
 
+.tab-bar__item--active {
+  background-color: #209e91;
+}
+
 .tab-bar__item:hover {
-  background-color: rgba(0,0,0,.4);
+  background-color: #209e91;
 }
 
 .tab-bar__title {

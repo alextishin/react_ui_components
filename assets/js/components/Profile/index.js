@@ -8,7 +8,8 @@ import Combo from '../../components/Combo'
 import Switcher from '../../components/Switcher'
 import Panel from '../../components/Panel'
 import Window from '../../components/Window'
-import Tab from '../../components/Tab'
+import Tabs from '../../components/Tabs'
+import TabPanel from '../../components/Tabs/TabPanel'
 
 
 class Profile extends Component {
@@ -58,13 +59,11 @@ class Profile extends Component {
               </ValidationForm>
           </Panel>
           <Panel>
-            <Tab tabs={
-              [
-                {id: 1, title: "Tab 1"},
-                {id: 2, title: "Tab 2"},
-                {id: 3, title: "Tab 3"}
-              ]
-            }/>
+            <Tabs>
+              <TabPanel title="Tab 1"></TabPanel>
+              <TabPanel title="Tab 2"></TabPanel>
+              <TabPanel title="Tab 3"></TabPanel>
+            </Tabs>
           </Panel>
         </div>
       </div>
