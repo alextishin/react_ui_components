@@ -12,12 +12,17 @@ class Tabs extends Component {
   }
 
   static propTypes = {
-    active: React.PropTypes.integer
-
+    active: React.PropTypes.integer,
+    vertical: React.PropTypes.boolean
   }
 
   static defaultProps = {
-      active: 0
+      active: 0,
+      vertical: false
+  }
+
+  isVertical() {
+    return this.props.vertical;
   }
 
 
@@ -32,7 +37,7 @@ class Tabs extends Component {
       return (
         <li
           key={index}
-          className={`tab-bar__item ${activeClass}`}
+          className={`tab-bar__item ${this.isVertical() ? "tab-bar__item--vertical": ''} ${activeClass}`}
           onClick={this.handleClick.bind(this, index)}>
           <span className="tab-bar__title">{child.props.title}</span>
         </li>
@@ -54,11 +59,11 @@ class Tabs extends Component {
 
   render() {
     return (
-      <div className="tab">
-        <ul className="tab-bar">
+      <div className={`tab ${this.isVertical() ? "tab--vertical" : ""}`}>
+        <ul className={`tab-bar ${this.isVertical() ? "tab-bar--vertical" : ""}`}>
           {this.renderBar()}
         </ul>
-        <div className="tab-content">
+        <div className={`tab-content ${this.isVertical() ? "tab-content--vertical" : ""}`}>
           {this.renderContent()}
         </div>
       </div>

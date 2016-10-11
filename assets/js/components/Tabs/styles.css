@@ -1,3 +1,11 @@
+.tab {
+  margin-bottom: 20px;
+}
+
+.tab--vertical {
+  display: flex;
+}
+
 .tab-bar {
   list-style: none;
   padding: 0;
@@ -5,8 +13,17 @@
   background-color: rgba(42,61,72,.4);
 }
 
+.tab-bar--vertical {
+  width: 20%;
+}
+
 .tab-bar__item {
   display: inline-block;
+  cursor: pointer;
+}
+
+.tab-bar__item--vertical {
+  display: block;
   cursor: pointer;
 }
 
@@ -20,6 +37,16 @@
   color: #fff;
 }
 
-.tab-content {
-  height: 300px;
+/*.tab-content {*/
+  /*height: 300px;*/
+/*}*/
+
+.tab-content--vertical {
+  width: 80%;
+}
+
+.tab-panel {
+  padding: 20px;
+  overflow: auto;
+  background: rgba(47, 45, 36, .4);
 }

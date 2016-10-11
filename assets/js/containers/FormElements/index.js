@@ -7,9 +7,7 @@ import Radio from '../../components/Radio'
 import Combo from '../../components/Combo'
 import Switcher from '../../components/Switcher'
 import Panel from '../../components/Panel'
-import Window from '../../components/Window'
-import Tabs from '../../components/Tabs'
-import TabPanel from '../../components/Tabs/TabPanel'
+
 
 
 class FormElements extends Component {
@@ -21,7 +19,6 @@ class FormElements extends Component {
           console.log("меньше 3 символов");
           return false;
         }
-
         return true;
       }
     }
@@ -63,7 +60,7 @@ class FormElements extends Component {
                       <Switcher name="switcher" label="Switcher 1"/>
                     </div>
                     <div className="col-md-6"></div>
-                    
+
                   </div>
                 </div>
               </ValidationForm>

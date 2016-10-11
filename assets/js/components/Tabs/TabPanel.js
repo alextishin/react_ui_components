@@ -8,9 +8,8 @@ class TabPanel extends Component {
   }
 
   render() {
-    return <div>
+    return <div className="tab-panel">
       {this.props.children}
-      
     </div>
   }
 }

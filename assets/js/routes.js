@@ -5,6 +5,7 @@ import SignUp from './containers/SignUp'
 import SignIn from './containers/SignIn'
 import Dashboard from './containers/Dashboard'
 import FormElements from './containers/FormElements'
+import TabsContainer from './containers/TabsContainer'
 
 
 
@@ -13,6 +14,7 @@ export default (
     <IndexRedirect to="dashboard" />
     <Route path="dashboard" component={Dashboard}>
       <Route path="form_elements" component={FormElements}></Route>
+      <Route path="tabs" component={TabsContainer}></Route>
     </Route>
     <Route path="signup" component={SignUp} />
     <Route path="signin" component={SignIn} />

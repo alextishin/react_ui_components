@@ -12,7 +12,8 @@ class Sidebar extends Component {
   state = {
     navItems: [
       {id:1, pathname: '/', label: 'Home', icon: 'home' },
-      {id:2, pathname: '/dashboard/form_elements', label: 'Form Elements', icon: 'user' }
+      {id:2, pathname: '/dashboard/form_elements', label: 'Form Elements', icon: 'check-square ' },
+      {id:3, pathname: '/dashboard/tabs', label: 'Tabs', icon: 'columns ' }
     ],
     selectedItem: 1,
     collapsed: false
