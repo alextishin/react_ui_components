@@ -14,7 +14,8 @@ class Switcher extends Component {
   }
 
   propTypes: {
-    name: React.PropTypes.string.isRequired
+    name: React.PropTypes.string.isRequired,
+    label: React.PropTypes.string
   }
 
   static contextTypes = {
@@ -49,19 +50,23 @@ class Switcher extends Component {
 
   render() {
     return (
-      <div className="switcher" name={this.props.name} onClick={this.toggle} ref="switcher">
-        <div className="switcher__overflow">
-          <div className="switcher__container" ref="switchContainer">
-            <span className="switcher__btn switcher__btn--on">
-              <span className="switcher__text switcher__text--on">ON</span>
+      <div className="switcher">
+        <div className="switcher__label col-md-3">{this.props.label}</div>
+        <div className="switcher-btn col-md-9" name={this.props.name} onClick={this.toggle} ref="switcher">
+          <div className="switcher-btn__overflow">
+            <div className="switcher-btn__container" ref="switchContainer">
+            <span className="switcher-btn__toggle switcher-btn__toggle--on">
+              <span className="switcher-btn__text switcher-btn__text--on">ON</span>
             </span>
-            <span className="switcher__btn"></span>
-            <span className="switcher__btn switcher__btn--off">
-              <span className="switcher__text">OFF</span>
+              <span className="switcher-btn__toggle"></span>
+            <span className="switcher-btn__toggle switcher-btn__toggle--off">
+              <span className="switcher-btn__text">OFF</span>
             </span>
+            </div>
           </div>
         </div>
       </div>
+
     )
   }
 }

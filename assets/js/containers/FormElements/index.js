@@ -29,41 +29,44 @@ class FormElements extends Component {
     return (
       <div className="content">
         <div className="content__block">
-          <h1 className="content__header">Профиль</h1>
+          <h1 className="content__header">FORM</h1>
           <Panel>
               <ValidationForm rules={formRules}>
                 <div className="row">
-                  <h3 className="info-header">Основная информация</h3>
+                  <h3 className="info-header">Form Elements</h3>
                   <div className="row">
                     <div className="col-md-6">
-                      <ValidationInput inputId="name" text="Имя" name="name"/>
+                      <ValidationInput inputId="name" text="Text" name="text"/>
                       <Combo
-                        labelText="Combo 1"
+                        labelText="Combo"
                         name="combo"
                         options={[
-                          {id: 1, value: "value1"},
-                          {id: 2, value: "value2"},
-                          {id: 3, value: "value3"}
+                          {id: 1, value: "Value 1"},
+                          {id: 2, value: "Value 2"},
+                          {id: 3, value: "Value 3"}
                         ]}
                       />
-                      <Switcher name="switcher"/>
-                      <Checkbox labelText="Checkbox 1" name="checkbox"/>
-                      <RadioGroup name="radio1">
-                        <Radio name="radio1" labelText="Radio 1" value="r1"/>
-                        <Radio name="radio1" labelText="Radio 2" value="r2"/>
-                      </RadioGroup>
+                      <div className="clearfix">
+                        <div className="col-md-6">
+                          <Checkbox labelText="Value 1" name="checkbox"/>
+                          <Checkbox labelText="Value 2" name="checkbox"/>
+                          <Checkbox labelText="Value 3" name="checkbox"/>
+                        </div>
+                        <div className="col-md-6">
+                          <RadioGroup name="radio1">
+                            <Radio name="radio1" labelText="Value 1" value="r1"/>
+                            <Radio name="radio1" labelText="Value 2" value="r2"/>
+                            <Radio name="radio1" labelText="Value 3" value="r2"/>
+                          </RadioGroup>
+                        </div>
+                      </div>
+                      <Switcher name="switcher" label="Switcher 1"/>
                     </div>
                     <div className="col-md-6"></div>
+                    
                   </div>
                 </div>
               </ValidationForm>
-          </Panel>
-          <Panel>
-            <Tabs>
-              <TabPanel title="Tab 1">Tab1</TabPanel>
-              <TabPanel title="Tab 2">Tab2</TabPanel>
-              <TabPanel title="Tab 3">Tab3</TabPanel>
-            </Tabs>
           </Panel>
         </div>
       </div>
