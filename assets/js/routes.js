@@ -4,7 +4,7 @@ import App from './containers/App/index'
 import SignUp from './containers/SignUp'
 import SignIn from './containers/SignIn'
 import Dashboard from './containers/Dashboard'
-import Profile from './components/Profile'
+import FormElements from './containers/FormElements'
 
 
 
@@ -12,7 +12,7 @@ export default (
   <Route path="/" component={App}>
     <IndexRedirect to="dashboard" />
     <Route path="dashboard" component={Dashboard}>
-      <Route path="profile" component={Profile}></Route>
+      <Route path="form_elements" component={FormElements}></Route>
     </Route>
     <Route path="signup" component={SignUp} />
     <Route path="signin" component={SignIn} />

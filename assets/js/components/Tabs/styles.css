@@ -7,13 +7,10 @@
 
 .tab-bar__item {
   display: inline-block;
+  cursor: pointer;
 }
 
 .tab-bar__item--active {
-  background-color: #209e91;
-}
-
-.tab-bar__item:hover {
   background-color: #209e91;
 }
 

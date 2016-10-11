@@ -12,7 +12,7 @@ import Tabs from '../../components/Tabs'
 import TabPanel from '../../components/Tabs/TabPanel'
 
 
-class Profile extends Component {
+class FormElements extends Component {
 
   render() {
     let formRules = {
@@ -72,4 +72,4 @@ class Profile extends Component {
 }
 
 
-export default Profile;
+export default FormElements;
