@@ -42,6 +42,8 @@ class TabsContainer extends Component {
                 </p>
               </TabPanel>
             </Tabs>
+          </Panel>
+          <Panel>
             <Tabs vertical={true}>
               <TabPanel title="Tab 1">
                 <p>

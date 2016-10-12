@@ -59,10 +59,12 @@ class Tabs extends Component {
 
   render() {
     return (
-      <div className={`tab ${this.isVertical() ? "tab--vertical" : ""}`}>
-        <ul className={`tab-bar ${this.isVertical() ? "tab-bar--vertical" : ""}`}>
-          {this.renderBar()}
-        </ul>
+      <div className={`tab ${this.isVertical() ? "tab--vertical" : ""} clearfix`}>
+        <div className={`tab-bar ${this.isVertical() ? "tab-bar--vertical" : ""}`}>
+          <ul >
+            {this.renderBar()}
+          </ul>
+        </div>
         <div className={`tab-content ${this.isVertical() ? "tab-content--vertical" : ""}`}>
           {this.renderContent()}
         </div>
