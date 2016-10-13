@@ -8,7 +8,6 @@ import Tabs from '../../components/Tabs'
 import TabPanel from '../../components/Tabs/TabPanel'
 
 class TabsContainer extends Component {
-
   render() {
     return (
       <div className="content">
