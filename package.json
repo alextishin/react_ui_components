@@ -42,6 +42,7 @@
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
     "sass-loader": "^4.0.2",
+    "shortid": "^2.2.6",
     "style-loader": "^0.13.1",
     "todomvc-app-css": "^2.0.6",
     "trailpack-autoreload": "^1.0.2",
