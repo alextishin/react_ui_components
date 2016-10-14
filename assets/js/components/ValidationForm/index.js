@@ -19,16 +19,17 @@ class ValidationForm extends Component {
 
 
   static propTypes = {
-    onSuccess: React.propTypes.func,
-    onErrot: React.propTypes.func,
-    onSubmit: React.propTypes.func,
-    onValidSubmit: React.propTypes.func,
-    onInvalidSubmit: React.propTypes.func,
-    onValid: React.propTypes.func,
-    onInvalid: React.propTypes.func,
-    onChange: React.propTypes.func,
-    rules: React.propTypes.object
+    onSuccess: React.PropTypes.func,
+    onErrot: React.PropTypes.func,
+    onSubmit: React.PropTypes.func,
+    onValidSubmit: React.PropTypes.func,
+    onInvalidSubmit: React.PropTypes.func,
+    onValid: React.PropTypes.func,
+    onInvalid: React.PropTypes.func,
+    onChange: React.PropTypes.func,
+    rules: React.PropTypes.object
   }
+  
 
   static childContextTypes = {
     attachToForm: React.PropTypes.func,

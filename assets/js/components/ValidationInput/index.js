@@ -22,8 +22,9 @@ class ValidationInput extends Component {
   static propTypes = {
     inputId:  React.PropTypes.string.isRequired,
     name: React.PropTypes.string.isRequired,
-    labelText: React.propTypes.string.isRequired,
-    required: React.propTypes.boolean
+    labelText: React.PropTypes.string.isRequired,
+    required: React.PropTypes.boolean
+
   }
 
   state = {
@@ -34,6 +35,7 @@ class ValidationInput extends Component {
     value: ""
   }
 
+  
   static contextTypes = {
     attachToForm: React.PropTypes.func,
     validate: React.PropTypes.func

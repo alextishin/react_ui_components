@@ -1,0 +1,12 @@
+.table {
+  border: 1px solid rgba(255,255,255,.2);
+}
+
+.table__cell {
+  border: 1px solid rgba(255,255,255,.2);
+  padding: 10px;
+}
+
+.table__cell--head {
+  background: rgba(238, 238, 238, .2);
+}

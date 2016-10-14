@@ -28,13 +28,13 @@ class Table extends Component {
 
   renderHeader = () => {
     return this.props.columns.map((column) =>{
-      return <th key={shortid.generate()}>{column.header}</th>
+      return <th className="table__cell table__cell--head" key={shortid.generate()}>{column.header}</th>
     })
   }
 
   renderRow = (rowData) => {
    return this.props.columns.map((header) => {
-     return <td key={shortid.generate()}>{rowData[header.id]}</td>
+     return <td className="table__cell" key={shortid.generate()}>{rowData[header.id]}</td>
    });
   }
 
@@ -48,7 +48,7 @@ class Table extends Component {
 
   render() {
     return (
-      <table>
+      <table className="table">
         <thead>
           <tr>{this.renderHeader()}</tr>
         </thead>
