@@ -11,7 +11,13 @@ class Table extends Component {
     super(props);
 
     this.state = {
-      data: props.data
+      data: props.data.map((item) => {
+        if(!item.id) {
+          return  Object.assign({}, item, {id: shortid.generate()});
+        }
+        return {...item};
+      }),
+      selectedId: null
     }
   }
 
@@ -22,8 +28,23 @@ class Table extends Component {
         header: React.PropTypes.string.isRequired
       })
     ).isRequired,
-    data: React.PropTypes.array
+    data: React.PropTypes.arrayOf(React.PropTypes.shape({
+      id: React.PropTypes.oneOfType([
+        React.PropTypes.number,
+        React.PropTypes.string
+      ])
+    })).isRequired
 
+  }
+
+  select = (id) => {
+    this.setState({
+      selectedId: id
+    })
+  }
+
+  isSelected = (id) => {
+    return (id == this.state.selectedId) ? "table__row--selected" : '';
   }
 
   renderHeader = () => {
@@ -38,9 +59,16 @@ class Table extends Component {
    });
   }
 
+
   renderBody = () => {
     return this.state.data.map((row) => {
-      return <tr key={shortid.generate()}>{this.renderRow(row)}</tr>
+      return <tr
+        onClick={()=> {this.select(row.id)}}
+        key={shortid.generate()}
+        className={`table__row ${this.isSelected(row.id)}`}
+      >
+        {this.renderRow(row)}
+      </tr>
     })
   }
 
