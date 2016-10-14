@@ -18,7 +18,7 @@ class ValidationForm extends Component {
   }
 
 
-  propTypes: {
+  static propTypes = {
     onSuccess: React.propTypes.func,
     onErrot: React.propTypes.func,
     onSubmit: React.propTypes.func,

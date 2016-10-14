@@ -4,7 +4,7 @@ import './style.css'
 
 class Button extends Component {
 
-  propTypes: {
+  static propTypes = {
     value: React.PropTypes.string.isRequired,
     type: React.PropTypes.string.isRequired,
     onClick: React.PropTypes.func

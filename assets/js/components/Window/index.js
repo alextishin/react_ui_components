@@ -7,13 +7,13 @@ class Window extends Component {
     super(props);
   }
 
-  propTypes:{
+  static propTypes ={
     width: React.PropTypes.integer,
     height: React.PropTypes.integer,
     modal: React.PropTypes.boolean
   }
 
-  defaultProps = {
+  static defaultProps = {
     modal: false
   };
 
@@ -28,7 +28,7 @@ class Window extends Component {
   }
 
   renderDefault(styles) {
-    
+
     return (
       <div className="window window--notmodal" style={styles}>
         {this.props.children}

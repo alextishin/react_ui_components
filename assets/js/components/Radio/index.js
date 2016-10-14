@@ -10,7 +10,7 @@ class Radio extends Component {
 
 
 
-  propTypes: {
+  static propTypes = {
     name: React.PropTypes.string.isRequired,
     labelText: React.PropTypes.string.isRequired,
     value: React.PropTypes.string.isRequired

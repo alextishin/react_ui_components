@@ -14,10 +14,10 @@ class Checkbox extends Component {
     this.setValue = this.setValue.bind(this);
   }
 
-  propTypes: {
+  static propTypes = {
     name: React.PropTypes.string.isRequired,
     labelText: React.PropTypes.string.isRequired
-    }
+  }
 
   state = {
     value: false

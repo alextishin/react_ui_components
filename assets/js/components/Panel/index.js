@@ -3,7 +3,7 @@ import './style.css'
 
 class Panel extends Component {
   
-  propTypes:{
+  static propTypes = {
     headerText: React.PropTypes.string,
     header: React.PropTypes.boolean
   }

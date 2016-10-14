@@ -20,7 +20,7 @@ class Combo extends Component {
     this.setValue = this.setValue.bind(this);
   }
 
-  propTypes: {
+  static propTypes = {
     options: React.PropTypes.array.isRequired,
     name: React.PropTypes.string.isRequired
   }

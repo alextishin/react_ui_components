@@ -19,7 +19,7 @@ class ValidationInput extends Component {
     };
   }
 
-  propTypes: {
+  static propTypes = {
     inputId:  React.PropTypes.string.isRequired,
     name: React.PropTypes.string.isRequired,
     labelText: React.propTypes.string.isRequired,

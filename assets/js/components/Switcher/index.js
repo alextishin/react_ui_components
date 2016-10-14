@@ -13,7 +13,7 @@ class Switcher extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  propTypes: {
+  static propTypes = {
     name: React.PropTypes.string.isRequired,
     label: React.PropTypes.string
   }
