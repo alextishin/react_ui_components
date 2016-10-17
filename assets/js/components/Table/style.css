@@ -1,5 +1,9 @@
 .table {
-  border: 1px solid rgba(255,255,255,.2);
+  border-collapse: collapse;
+}
+
+.table__row--bordered {
+  border-bottom: 1px solid rgba(255,255,255,.2);
 }
 
 .table__row--selected {
@@ -7,8 +11,11 @@
 }
 
 .table__cell {
-  border: 1px solid rgba(255,255,255,.2);
   padding: 10px;
+}
+
+.table__cell--bordered {
+  border: 1px solid rgba(255,255,255,.2);
 }
 
 .table__cell--head {

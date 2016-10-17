@@ -22,4 +22,5 @@
 
 .panel__title {
   font-size: 16px;
+  text-transform: uppercase;
 }

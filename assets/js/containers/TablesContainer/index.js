@@ -11,23 +11,45 @@ class TablesContainer extends Component {
       <div className="content">
         <div className="content__block">
           <h1 className="content__header">TABLES</h1>
-          <Panel>
-            <Table
-              columns={[
+          <div className="row">
+            <div className="col-md-6">
+              <Panel header={true} headerText="Bordered Table">
+                <Table
+                  columns={[
                 {id: 'name', header: "Name"},
                 {id: 'age', header: "Age"},
                 {id:  'gender', header: "Gender"}
               ]}
-              data={[
+                  data={[
                 {name: 'John', age: '24', gender: 'Male'},
                 {name: 'John', age: '24', gender: 'Male'},
                 {name: 'John', age: '24', gender: 'Male'}
               ]}/>
-          </Panel>
+              </Panel>
+            </div>
+            <div className="col-md-6">
+              <Panel header={true} headerText="Non-Bordered Table">
+                <Table
+                  columns={[
+                    {id: 'name', header: "Name"},
+                    {id: 'age', header: "Age"},
+                    {id:  'gender', header: "Gender"}
+                  ]}
+                  data={[
+                    {name: 'John', age: '24', gender: 'Male'},
+                    {name: 'John', age: '24', gender: 'Male'},
+                    {name: 'John', age: '24', gender: 'Male'}
+                  ]}
+                  border={false}
+                />
+              </Panel>
+            </div>
+          </div>
         </div>
       </div>
     )
   }
 }
+
 
 export default TablesContainer;

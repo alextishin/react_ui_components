@@ -21,6 +21,10 @@ class Table extends Component {
     }
   }
 
+  static defaultProps = {
+    border: true
+  }
+
   static propTypes = {
     columns: React.PropTypes.arrayOf(
       React.PropTypes.shape({
@@ -33,8 +37,8 @@ class Table extends Component {
         React.PropTypes.number,
         React.PropTypes.string
       ])
-    })).isRequired
-
+    })).isRequired,
+    border: React.PropTypes.boolean
   }
 
   select = (id) => {
@@ -47,25 +51,28 @@ class Table extends Component {
     return (id == this.state.selectedId) ? "table__row--selected" : '';
   }
 
+  isBordered = () => {
+    return this.props.border;
+  }
+
   renderHeader = () => {
     return this.props.columns.map((column) =>{
-      return <th className="table__cell table__cell--head" key={shortid.generate()}>{column.header}</th>
+      return <th className={`table__cell ${this.isBordered() ? "table__cell--bordered": ''} table__cell--head`} key={shortid.generate()}>{column.header}</th>
     })
   }
 
   renderRow = (rowData) => {
    return this.props.columns.map((header) => {
-     return <td className="table__cell" key={shortid.generate()}>{rowData[header.id]}</td>
+     return <td className={`table__cell ${this.isBordered() ? "table__cell--bordered": ''}`} key={shortid.generate()}>{rowData[header.id]}</td>
    });
   }
-
 
   renderBody = () => {
     return this.state.data.map((row) => {
       return <tr
         onClick={()=> {this.select(row.id)}}
         key={shortid.generate()}
-        className={`table__row ${this.isSelected(row.id)}`}
+        className={`table__row ${!this.isBordered() ? "table__row--bordered" : ""} ${this.isSelected(row.id)}`}
       >
         {this.renderRow(row)}
       </tr>
