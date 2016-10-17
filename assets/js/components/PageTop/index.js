@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import Person from '../../../img/person.svg';
 
 class PageTop extends Component {
 
   renderLogo() {
     return (
-      <Link to="/" className="clearfix">FRAMEWORK</Link>
+      <div></div>
     );
   }
 
   renderUserSection() {
     return (
         <div className="">
-          sdsd
         </div>
     );
   }
@@ -27,6 +25,7 @@ class PageTop extends Component {
 
       </div>
     )
+
   }
 }
 

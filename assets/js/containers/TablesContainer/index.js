@@ -41,6 +41,7 @@ class TablesContainer extends Component {
                     {name: 'John', age: '24', gender: 'Male'}
                   ]}
                   border={false}
+                  
                 />
               </Panel>
             </div>

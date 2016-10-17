@@ -59,11 +59,12 @@ class Sidebar extends Component {
   }
 
   render() {
+    // <div className="sidebar__toggle">
+    //   <i className="fa fa-bars fa-2x" onClick={this.toggle.bind(this)}></i>
+    // </div>
     return (
       <aside className={`sidebar ${this.isCollapsed() ? 'sidebar--collapsed' : ''}`}>
-        <div className="sidebar__toggle">
-          <i className="fa fa-bars fa-2x" onClick={this.toggle.bind(this)}></i>
-        </div>
+
         <ul>
           {this.renderItems()}
         </ul>

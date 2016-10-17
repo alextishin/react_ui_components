@@ -515,7 +515,7 @@ html, body {
 body {
   font: 14px/16px "Roboto", sans-serif;
   color: white;
-  background: url("../img/blur-bg.jpg") no-repeat center center;
+  background: url("../img/bg1.jpg") no-repeat center center;
   background-size: cover;
 }
 
