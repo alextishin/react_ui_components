@@ -16,10 +16,13 @@ class IconButton extends Component {
       <div className="icon-button">
         <button style={{backgroundColor: this.props.color}} className="icon-button__btn">
           <i className={`fa fa-${this.props.icon}`}></i>
+          <span className={`icon-button__text ${!this.props.value ? 'hidden' : ''}`}>{this.props.value}</span>
         </button>
       </div>
+
     )
   }
 }
+
 
 export default IconButton;

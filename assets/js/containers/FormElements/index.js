@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Row from '../../components/Row'
 import ValidationForm from '../../components/ValidationForm'
 import ValidationInput from '../../components/ValidationInput'
 import Checkbox from '../../components/Checkbox'
@@ -29,11 +30,11 @@ class FormElements extends Component {
       <div className="content">
         <div className="content__block">
           <h1 className="content__header">FORM</h1>
-          <div className="row">
+          <Row>
             <div className="col-md-8">
               <Panel header={true} headerText="Form Elements">
                 <ValidationForm rules={formRules}>
-                  <div className="row">
+                  <Row>
                     <div className="col-md-6">
                       <ValidationInput inputId="name" text="Text" name="text"/>
                       <Combo
@@ -63,19 +64,27 @@ class FormElements extends Component {
                       <Button type="button" value="Button"/>
                     </div>
                     <div className="col-md-6"></div>
-                  </div>
+                  </Row>
                 </ValidationForm>
               </Panel>
             </div>
             <div className="col-md-4">
               <Panel header={true} headerText="Icon Buttons">
-                <IconButton icon="anchor" />
-                <IconButton icon="bell-o" color="#bd3155"/>
-                <IconButton icon="ban" color="#528439"/>
-                <IconButton icon="exclamation-triangle" color="#7c3984"/>
+                <Row>
+                  <IconButton icon="anchor" />
+                  <IconButton icon="bell-o" color="#bd3155"/>
+                  <IconButton icon="ban" color="#528439"/>
+                  <IconButton icon="exclamation-triangle" color="#7c3984"/>
+                </Row>
+                <Row>
+                  <IconButton icon="anchor" value="Anchor" />
+                  <IconButton icon="bell-o" color="#bd3155" value="Anchor"/>
+                  <IconButton icon="ban" color="#528439" value="Ban"/>
+                  <IconButton icon="exclamation-triangle" color="#7c3984" value="Warning"/>
+                </Row>
               </Panel>
             </div>
-          </div>
+          </Row>
         </div>
       </div>
     )
