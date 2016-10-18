@@ -12,15 +12,18 @@ class Button extends Component {
 
   render() {
     return (
-      <input
-        onClick={this.props.onClick}
-        className="text-button"
-        type={this.props.type}
-        value={this.props.value}
-      />
+      <div>
+        <input
+          onClick={this.props.onClick}
+          className="text-button"
+          type={this.props.type}
+          value={this.props.value}
+        />
+      </div>
+
     )
   }
-  
+
 }
 
 

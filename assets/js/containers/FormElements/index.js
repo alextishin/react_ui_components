@@ -8,6 +8,7 @@ import Combo from '../../components/Combo'
 import Switcher from '../../components/Switcher'
 import Panel from '../../components/Panel'
 import Button from '../../components/Button'
+import IconButton from '../../components/IconButton'
 
 
 
@@ -68,7 +69,10 @@ class FormElements extends Component {
             </div>
             <div className="col-md-4">
               <Panel header={true} headerText="Icon Buttons">
-
+                <IconButton icon="anchor" />
+                <IconButton icon="bell-o" color="#bd3155"/>
+                <IconButton icon="ban" color="#528439"/>
+                <IconButton icon="exclamation-triangle" color="#7c3984"/>
               </Panel>
             </div>
           </div>

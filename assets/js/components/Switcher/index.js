@@ -50,7 +50,7 @@ class Switcher extends Component {
 
   render() {
     return (
-      <div className="switcher">
+      <div className="switcher clearfix">
         <div className="switcher__label col-md-3">{this.props.label}</div>
         <div className="switcher-btn col-md-9" name={this.props.name} onClick={this.toggle} ref="switcher">
           <div className="switcher-btn__overflow">

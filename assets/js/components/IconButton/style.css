@@ -1,0 +1,17 @@
+.icon-button {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin: 0 5px;
+}
+
+.icon-button__btn {
+  border-radius: 5px;
+  border: none;
+  background: #34a0c7;
+}
+
+.icon-button__btn i {
+  padding: 10px;
+  color: #fff;
+}
