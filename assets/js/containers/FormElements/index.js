@@ -7,6 +7,7 @@ import Radio from '../../components/Radio'
 import Combo from '../../components/Combo'
 import Switcher from '../../components/Switcher'
 import Panel from '../../components/Panel'
+import Button from '../../components/Button'
 
 
 
@@ -27,10 +28,10 @@ class FormElements extends Component {
       <div className="content">
         <div className="content__block">
           <h1 className="content__header">FORM</h1>
-          <Panel>
-              <ValidationForm rules={formRules}>
-                <div className="row">
-                  <h3 className="info-header">Form Elements</h3>
+          <div className="row">
+            <div className="col-md-8">
+              <Panel header={true} headerText="Form Elements">
+                <ValidationForm rules={formRules}>
                   <div className="row">
                     <div className="col-md-6">
                       <ValidationInput inputId="name" text="Text" name="text"/>
@@ -38,10 +39,10 @@ class FormElements extends Component {
                         labelText="Combo"
                         name="combo"
                         options={[
-                          {id: 1, value: "Value 1"},
-                          {id: 2, value: "Value 2"},
-                          {id: 3, value: "Value 3"}
-                        ]}
+                        {id: 1, value: "Value 1"},
+                        {id: 2, value: "Value 2"},
+                        {id: 3, value: "Value 3"}
+                      ]}
                       />
                       <div className="clearfix">
                         <div className="col-md-6">
@@ -57,14 +58,20 @@ class FormElements extends Component {
                           </RadioGroup>
                         </div>
                       </div>
-                      <Switcher name="switcher" label="Switcher 1"/>
+                      <Switcher name="switcher" label="Switcher"/>
+                      <Button type="button" value="Button"/>
                     </div>
                     <div className="col-md-6"></div>
-
                   </div>
-                </div>
-              </ValidationForm>
-          </Panel>
+                </ValidationForm>
+              </Panel>
+            </div>
+            <div className="col-md-4">
+              <Panel header={true} headerText="Icon Buttons">
+
+              </Panel>
+            </div>
+          </div>
         </div>
       </div>
     )

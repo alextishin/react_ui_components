@@ -117,7 +117,6 @@ class ValidationForm extends Component {
     return (
       <form>
         {this.props.children}
-        <button type="button" onClick={()=>{console.log(this.getValues())}}>TEST</button>
       </form>
     )
   }

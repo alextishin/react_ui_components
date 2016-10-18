@@ -12,7 +12,7 @@ class TabsContainer extends Component {
     return (
       <div className="content">
         <div className="content__block">
-          <h1 className="content__header">FORM</h1>
+          <h1 className="content__header">TABS</h1>
           <Panel>
             <Tabs>
               <TabPanel title="Tab 1">

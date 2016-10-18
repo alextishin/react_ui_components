@@ -35,7 +35,7 @@ class Switcher extends Component {
     }, function () {
       if(this.state.value) {
         container.style.marginLeft = "0";
-        switcher.style.borderColor = "#209e91"
+        switcher.style.borderColor = "#34a0c7"
       } else {
         container.style.marginLeft = "-50px";
         switcher.style.borderColor = "#fff"
