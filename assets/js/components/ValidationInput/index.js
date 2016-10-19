@@ -84,11 +84,11 @@ class ValidationInput extends Component {
   render() {
     return (
         <div className="form-group clearfix">
-          <label className="col-sm-3 input__label" htmlFor={this.props.inputId}>{this.props.text}</label>
+          <label className="col-sm-3 input__label" htmlFor={this.props.inputId}>{this.props.labelText}</label>
           <div className="col-sm-9">
             <input className={`input ${this.isFocused()} ${this.isValid()}`}
                    id={this.props.inputId}
-                   placeholder={this.props.text}
+                   placeholder={this.props.labelText}
                    onFocus={this.handleFocus}
                    onBlur={this.handleBlur}
                    onChange={this.setValue}

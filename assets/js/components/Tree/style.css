@@ -1,0 +1,26 @@
+.tree {
+  padding: 10px;
+}
+
+.tree__plus {
+  display: inline-block;
+  width: 12px;
+  padding-right: 5px;
+}
+
+.tree__folder--empty {
+  margin-left: 17px;
+}
+
+.tree__branch {
+  margin: 5px 0;
+}
+
+.tree__leaf {
+  margin: 5px 0;
+  padding-left: 40px;
+}
+
+.tree__branch-name {
+  padding: 0 10px;
+}

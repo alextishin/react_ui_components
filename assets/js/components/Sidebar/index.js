@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react'
 import {Link} from 'react-router'
-import _ from 'lodash'
+import shortid from 'shortid'
 
 import './style.css'
 
@@ -14,7 +14,8 @@ class Sidebar extends Component {
       {id:1, pathname: '/', label: 'Home', icon: 'home' },
       {id:2, pathname: '/dashboard/form_elements', label: 'Form Elements', icon: 'check-square ' },
       {id:3, pathname: '/dashboard/tabs', label: 'Tabs', icon: 'columns ' },
-      {id:4, pathname: '/dashboard/tables', label: 'Tables', icon: 'table ' }
+      {id:4, pathname: '/dashboard/tables', label: 'Tables', icon: 'table ' },
+      {id:5, pathname: '/dashboard/trees', label: 'Trees', icon: 'sitemap ' }
 
     ],
     selectedItem: 1,
@@ -24,6 +25,7 @@ class Sidebar extends Component {
   isSelected(id) {
     return id === this.state.selectedItem ? 'sidebar__item--selected' : '';
   }
+  
 
   isCollapsed() {
     return this.state.collapsed;
@@ -44,9 +46,9 @@ class Sidebar extends Component {
   }
 
   renderItems(){
-    return _.map(this.state.navItems, (navItem) => {
+    return this.state.navItems.map((navItem) => {
       return (
-        <li key={navItem.id} className={`sidebar__item ${this.isSelected(navItem.id)}`} onClick={() => this.select(navItem.id)}>
+        <li key={shortid.generate()} className={`sidebar__item ${this.isSelected(navItem.id)}`} onClick={() => this.select(navItem.id)}>
           <Link to={navItem.pathname} className={`sidebar__link ${this.isCollapsed() ? 'sidebar__link--collapsed' : ''}`}>
             <div className={`sidebar__icon ${this.isCollapsed() ? 'sidebar__icon--collapsed' : ''}`}>
               <i className={`fa fa-${navItem.icon}`}></i>

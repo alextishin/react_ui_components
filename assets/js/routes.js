@@ -7,6 +7,7 @@ import Dashboard from './containers/Dashboard'
 import FormElements from './containers/FormElements'
 import TabsContainer from './containers/TabsContainer'
 import TablesContainer from './containers/TablesContainer'
+import TreesContainer from './containers/TreesContainer'
 
 
 
@@ -17,6 +18,7 @@ export default (
       <Route path="form_elements" component={FormElements}></Route>
       <Route path="tabs" component={TabsContainer}></Route>
       <Route path="tables" component={TablesContainer}></Route>
+      <Route path="trees" component={TreesContainer}></Route>
     </Route>
     <Route path="signup" component={SignUp} />
     <Route path="signin" component={SignIn} />
