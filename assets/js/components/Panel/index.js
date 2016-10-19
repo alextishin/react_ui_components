@@ -14,7 +14,7 @@ class Panel extends Component {
 
   render() {
     return (
-      <div className="panel">
+      <div className="panel" style={this.props.styles}>
         <div className={`panel__header ${this.isHeaderVisible()}`}>
           <h2 className="panel__title">{this.props.headerText}</h2>
         </div>

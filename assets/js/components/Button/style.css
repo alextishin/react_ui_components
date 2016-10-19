@@ -1,12 +1,20 @@
 .text-button {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.text-button__input {
+  width: 100%;
   border-radius: 5px;
   border: none;
   background-color:  #34a0c7;
-  padding: 5px 20px;
+  padding: 5px 10px;
   font-size: 14px;
   line-height: 1.42857143;
   cursor: pointer;
   color: #fff;
+  text-align: center;
+  box-sizing: border-box;
   -webkit-transition: all .1s ease;
   -moz-transition: all .1s ease;;
   -ms-transition: all .1s ease;;
@@ -14,7 +22,7 @@
   transition: all .1s ease;;
 }
 
-.text-button:hover {
+.text-button__input:hover {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   -ms-transform: scale(1.1);

@@ -7,10 +7,10 @@ class Tree extends Component {
     super(props);
 
     this.state = {
-      collapsed: false,
+      collapsed: true,
       data: props.data.map((item) => {
-        if(!item.id) {
-          return  {
+        if (!item.id) {
+          return {
             id: shortid.generate(),
             ...item
           };
@@ -20,8 +20,8 @@ class Tree extends Component {
       }),
       openedMap: null
     }
-
   }
+
 
   static propTypes = {
     data: React.PropTypes.array.isRequired
@@ -52,7 +52,6 @@ class Tree extends Component {
   }
 
   toggleBranchState = (branchId) => {
-    console.log('toggleBranchState');
     var openedMap = {...this.state.openedMap};
 
     openedMap[branchId] = !openedMap[branchId];
@@ -60,6 +59,37 @@ class Tree extends Component {
     this.setState({
       openedMap: openedMap
     })
+  }
+
+  collapseAll = () => {
+
+    if(!this.state.collapsed) {
+      var openedMap = {...this.state.openedMap};
+
+      for(let key in openedMap) {
+        openedMap[key] = false;
+      }
+
+      this.setState({
+        openedMap: openedMap,
+        collapsed: true
+      })
+    }
+  }
+
+  expandAll = () => {
+    if(this.state.collapsed) {
+      var openedMap = {...this.state.openedMap};
+
+      for(let key in openedMap) {
+        openedMap[key] = true;
+      }
+
+      this.setState({
+        openedMap: openedMap,
+        collapsed: false
+      })
+    }
   }
 
   renderBranchOpenIcon = (branchId) => {
@@ -75,8 +105,10 @@ class Tree extends Component {
     let branchLeafs = leafs.map((leaf) => {
       return (
         <li key={shortid.generate()} className='tree__leaf'>
-          <i className={`fa fa-file`}></i>
-          <span className="tree__branch-name">{leaf.name}</span>
+          <a href="#" className="tree__link">
+            <i className={`fa fa-file`}></i>
+            <span className="tree__branch-name">{leaf.name}</span>
+          </a>
         </li>
       )
     });
@@ -89,12 +121,14 @@ class Tree extends Component {
       return (
         <li key={shortid.generate()} className='tree__branch'>
           {branch.data ? this.renderBranchOpenIcon(branch.id) : ''}
-          <span className={`tree__folder ${!branch.data ? 'tree__folder--empty' : ''}`}>
+          <a className={`tree__link ${!branch.data ? 'tree__link--empty' : ''} `}>
+            <span className={`tree__folder `}>
             <i className={`fa fa-${this.isBranchOpen(branch.id) ? 'folder-open' : 'folder'}`}></i>
           </span>
           <span className="tree__branch-name">
             {branch.name}
           </span>
+          </a>
           {branch.data ? this.renderLeafs(branch.data, branch.id) : ''}
         </li>
       )
