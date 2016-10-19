@@ -15,8 +15,6 @@ class Tree extends Component {
             ...item
           };
         }
-
-
         return {...item};
 
       }),
@@ -53,16 +51,27 @@ class Tree extends Component {
     return this.state.collapsed;
   }
 
+  toggleBranchState = (branchId) => {
+    console.log('toggleBranchState');
+    var openedMap = {...this.state.openedMap};
+
+    openedMap[branchId] = !openedMap[branchId];
+
+    this.setState({
+      openedMap: openedMap
+    })
+  }
+
   renderBranchOpenIcon = (branchId) => {
     return (
-      <span className="tree__plus">
+      <span className="tree__plus" onClick={() => {this.toggleBranchState(branchId)}}>
         <i className={`fa fa-${ this.isBranchOpen(branchId) ? 'minus-square-o' : 'plus-square-o' }`}></i>
       </span>
     )
   }
 
 
-  renderLeafs = (leafs) => {
+  renderLeafs = (leafs, branchId) => {
     let branchLeafs = leafs.map((leaf) => {
       return (
         <li key={shortid.generate()} className='tree__leaf'>
@@ -72,7 +81,7 @@ class Tree extends Component {
       )
     });
 
-    return <ul>{branchLeafs}</ul>;
+    return <ul className={`${ !this.isBranchOpen(branchId) ? 'hidden' : '' }`}>{branchLeafs}</ul>;
   }
 
   renderBranches = () => {
@@ -81,12 +90,12 @@ class Tree extends Component {
         <li key={shortid.generate()} className='tree__branch'>
           {branch.data ? this.renderBranchOpenIcon(branch.id) : ''}
           <span className={`tree__folder ${!branch.data ? 'tree__folder--empty' : ''}`}>
-            <i className={`fa fa-${this.isCollapsed() ? 'folder-open' : 'folder'}`}></i>
+            <i className={`fa fa-${this.isBranchOpen(branch.id) ? 'folder-open' : 'folder'}`}></i>
           </span>
           <span className="tree__branch-name">
             {branch.name}
           </span>
-          {branch.data ? this.renderLeafs(branch.data) : ''}
+          {branch.data ? this.renderLeafs(branch.data, branch.id) : ''}
         </li>
       )
     });
