@@ -9,14 +9,26 @@ class Tree extends Component {
     this.state = {
       collapsed: true,
       data: props.data.map((item) => {
-        if (!item.id) {
-          return {
-            id: shortid.generate(),
-            ...item
-          };
-        }
-        return {...item};
+        var i = {...item};
 
+        if (!i.id) {
+          i.id = shortid.generate();
+        }
+
+        if(i.data) {
+          i.data = i.data.map((child) => {
+            if (!child.id) {
+              return {
+                id: shortid.generate(),
+                parentId: i.id,
+                ...child
+              };
+            }
+            return {...child};
+          });
+        }
+        
+        return i;
       }),
       openedMap: null
     }
@@ -29,9 +41,11 @@ class Tree extends Component {
 
   componentWillMount = () => {
     this.setState({
-      openedMap: this.createOpenedMap(this.state.data)
-    }, ()=>{console.log(this.state)})
+      openedMap: this.createOpenedMap(this.state.data),
+      itemMap: this.createItemMap(this.state.data)
+    })
   }
+
 
   createOpenedMap = (data) => {
     var openNodeMap = {};
@@ -41,6 +55,21 @@ class Tree extends Component {
     });
 
     return openNodeMap;
+  }
+
+  createItemMap = (data) => {
+    var itemMap = {};
+
+    data.forEach((item) => {
+      if(item.data) {
+        item.data.forEach((child) => {
+          itemMap[child.id] = child;
+        });
+      }
+      itemMap[item.id] = item;
+    });
+
+    return itemMap;
   }
 
   isBranchOpen = (branchId) => {
@@ -62,8 +91,6 @@ class Tree extends Component {
   }
 
   collapseAll = () => {
-
-    if(!this.state.collapsed) {
       var openedMap = {...this.state.openedMap};
 
       for(let key in openedMap) {
@@ -72,24 +99,21 @@ class Tree extends Component {
 
       this.setState({
         openedMap: openedMap,
-        collapsed: true
       })
-    }
+
   }
 
   expandAll = () => {
-    if(this.state.collapsed) {
-      var openedMap = {...this.state.openedMap};
+    var openedMap = {...this.state.openedMap};
 
-      for(let key in openedMap) {
-        openedMap[key] = true;
-      }
-
-      this.setState({
-        openedMap: openedMap,
-        collapsed: false
-      })
+    for(let key in openedMap) {
+      openedMap[key] = true;
     }
+
+    this.setState({
+      openedMap: openedMap,
+      collapsed: false
+    })
   }
 
   renderBranchOpenIcon = (branchId) => {
