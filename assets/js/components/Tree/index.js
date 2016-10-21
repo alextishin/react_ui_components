@@ -27,7 +27,7 @@ class Tree extends Component {
             return {...child};
           });
         }
-        
+
         return i;
       }),
       openedMap: null
@@ -41,13 +41,32 @@ class Tree extends Component {
 
   componentWillMount = () => {
     this.setState({
-      openedMap: this.createOpenedMap(this.state.data),
-      itemMap: this.createItemMap(this.state.data)
+      openedMap: this._createOpenedMap(this.state.data),
+      itemMap: this._createItemMap(this.state.data),
+      branch: this._createBranch(this.state.data)
+    }, () => {console.log(this.state)})
+  }
+
+  _createBranch = (data) => {
+    var branch = {};
+
+    data.forEach((item) => {
+      if(item.data) {
+        branch[item.id] = {};
+
+        item.data.forEach((child) => {
+          branch[item.id][child.id] = {...child}
+        })
+      }
+      else
+        branch[item.id] = {};
     })
+
+    return branch;
   }
 
 
-  createOpenedMap = (data) => {
+  _createOpenedMap = (data) => {
     var openNodeMap = {};
 
     data.forEach((item) => {
@@ -57,16 +76,17 @@ class Tree extends Component {
     return openNodeMap;
   }
 
-  createItemMap = (data) => {
+  _createItemMap = (data) => {
     var itemMap = {};
 
     data.forEach((item) => {
       if(item.data) {
         item.data.forEach((child) => {
-          itemMap[child.id] = child;
+          itemMap[child.id] = {...child};
         });
       }
-      itemMap[item.id] = item;
+      itemMap[item.id] = {...item};
+      delete itemMap[item.id].data;
     });
 
     return itemMap;
@@ -116,6 +136,10 @@ class Tree extends Component {
     })
   }
 
+  hasChilds = (branchId) => {
+    return (Object.keys(this.state.branch[branchId]).length > 0);
+  }
+
   renderBranchOpenIcon = (branchId) => {
     return (
       <span className="tree__plus" onClick={() => {this.toggleBranchState(branchId)}}>
@@ -124,39 +148,50 @@ class Tree extends Component {
     )
   }
 
-
   renderLeafs = (leafs, branchId) => {
-    let branchLeafs = leafs.map((leaf) => {
-      return (
+    var bracheLeafs = [];
+
+    for(let key in leafs) {
+      var leaf = (
         <li key={shortid.generate()} className='tree__leaf'>
           <a href="#" className="tree__link">
             <i className={`fa fa-file`}></i>
-            <span className="tree__branch-name">{leaf.name}</span>
+            <span className="tree__branch-name">{leafs[key].name}</span>
           </a>
         </li>
       )
-    });
 
-    return <ul className={`${ !this.isBranchOpen(branchId) ? 'hidden' : '' }`}>{branchLeafs}</ul>;
+      bracheLeafs.push(leaf);
+    }
+
+    return <ul className={`${ !this.isBranchOpen(branchId) ? 'hidden' : '' }`}>{bracheLeafs}</ul>;
   }
 
+
   renderBranches = () => {
-    return this.state.data.map((branch) => {
-      return (
+    var branches = [];
+    var _branch = this.state.branch;
+    var _items = this.state.itemMap;
+
+    for(let key in _branch) {
+      let branch = (
         <li key={shortid.generate()} className='tree__branch'>
-          {branch.data ? this.renderBranchOpenIcon(branch.id) : ''}
-          <a className={`tree__link ${!branch.data ? 'tree__link--empty' : ''} `}>
+        {this.hasChilds(key) ? this.renderBranchOpenIcon(key) : ''}
+        <a className={`tree__link ${!this.hasChilds(key) ? 'tree__link--empty' : ''} `}>
             <span className={`tree__folder `}>
-            <i className={`fa fa-${this.isBranchOpen(branch.id) ? 'folder-open' : 'folder'}`}></i>
+            <i className={`fa fa-${this.isBranchOpen(key) ? 'folder-open' : 'folder'}`}></i>
           </span>
           <span className="tree__branch-name">
-            {branch.name}
+            {_items[key].name}
           </span>
-          </a>
-          {branch.data ? this.renderLeafs(branch.data, branch.id) : ''}
-        </li>
-      )
-    });
+        </a>
+        {this.hasChilds(key) ? this.renderLeafs(_branch[key], key) : ''}
+      </li>
+      );
+      branches.push(branch);
+    }
+
+    return branches;
   }
 
   render = () => {
