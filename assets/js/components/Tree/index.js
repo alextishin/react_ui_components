@@ -100,6 +100,10 @@ class Tree extends Component {
     return this.state.collapsed;
   }
 
+  hasChilds = (branchId) => {
+    return (Object.keys(this.state.branch[branchId]).length > 0);
+  }
+
   toggleBranchState = (branchId) => {
     var openedMap = {...this.state.openedMap};
 
@@ -136,9 +140,6 @@ class Tree extends Component {
     })
   }
 
-  hasChilds = (branchId) => {
-    return (Object.keys(this.state.branch[branchId]).length > 0);
-  }
 
   renderBranchOpenIcon = (branchId) => {
     return (
