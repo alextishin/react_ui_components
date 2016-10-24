@@ -19,6 +19,13 @@ class TreesContainer extends Component {
     tree.expandAll();
   }
 
+  addItem = () => {
+    let tree = this.refs.tree;
+
+    tree.add('xxYuasdi', {name: "Part 3"});
+    console.log(tree.getItem('xxYuasdi'));
+  }
+
   render = () => {
     return(
      <ContentContainer title="TREES">
@@ -31,11 +38,14 @@ class TreesContainer extends Component {
              <Button value="Expand All"
                      onClick={() => {this.expandTree()}}
              />
+             <Button value="Add To Book 1"
+                     onClick={() => {this.addItem()}}
+             />
            </div>
            <div className="col-md-1"></div>
            <div className="col-md-9">
              <Tree ref="tree" data={[
-                {name: "Book 1", data: [
+                {name: "Book 1", id:'xxYuasdi', data: [
                   {name: "Part 1" },
                   {name: "Part 2" }
                 ]},

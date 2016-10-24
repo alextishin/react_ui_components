@@ -44,7 +44,7 @@ class Tree extends Component {
       openedMap: this._createOpenedMap(this.state.data),
       itemMap: this._createItemMap(this.state.data),
       branch: this._createBranch(this.state.data)
-    }, () => {console.log(this.state)})
+    }, () => {console.log(this.state.branch)})
   }
 
   _createBranch = (data) => {
@@ -64,7 +64,6 @@ class Tree extends Component {
 
     return branch;
   }
-
 
   _createOpenedMap = (data) => {
     var openNodeMap = {};
@@ -138,6 +137,24 @@ class Tree extends Component {
       openedMap: openedMap,
       collapsed: false
     })
+  }
+
+  getItem = (id) => {
+    return this.state.itemMap[id];
+  }
+
+  add = (parentId, item) => {
+    var branch = {...this.state.branch};
+    var itemMap = {...this.state.itemMap};
+    var newId = item.id || shortid.generate();
+
+    branch[parentId][newId] = {id: newId, ...item};
+    itemMap[newId] = {id: newId, ...item};
+
+    this.setState({
+      branch: branch,
+      itemMap: itemMap
+    }, () => {console.log(this.state)});
   }
 
 
