@@ -22,8 +22,13 @@ class TreesContainer extends Component {
   addItem = () => {
     let tree = this.refs.tree;
 
-    tree.add('xxYuasdi', {name: "Part 3"});
-    console.log(tree.getItem('xxYuasdi'));
+    tree.add('xxYuasdi', {id: 'sdseeqdSa', name: "Part 3"});
+  }
+
+  removeItem = () => {
+    let tree = this.refs.tree;
+
+    tree.remove('sdseeqdSa');
   }
 
   render = () => {
@@ -40,6 +45,9 @@ class TreesContainer extends Component {
              />
              <Button value="Add To Book 1"
                      onClick={() => {this.addItem()}}
+             />
+             <Button value="Remove Part 3"
+                     onClick={() => {this.removeItem()}}
              />
            </div>
            <div className="col-md-1"></div>

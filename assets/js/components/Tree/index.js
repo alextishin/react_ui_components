@@ -44,7 +44,7 @@ class Tree extends Component {
       openedMap: this._createOpenedMap(this.state.data),
       itemMap: this._createItemMap(this.state.data),
       branch: this._createBranch(this.state.data)
-    }, () => {console.log(this.state.branch)})
+    })
   }
 
   _createBranch = (data) => {
@@ -148,13 +148,33 @@ class Tree extends Component {
     var itemMap = {...this.state.itemMap};
     var newId = item.id || shortid.generate();
 
-    branch[parentId][newId] = {id: newId, ...item};
-    itemMap[newId] = {id: newId, ...item};
+    branch[parentId][newId] = {id: newId, parentId: parentId, ...item};
+    itemMap[newId] = {id: newId, parentId: parentId, ...item};
 
     this.setState({
       branch: branch,
       itemMap: itemMap
-    }, () => {console.log(this.state)});
+    });
+  }
+
+  remove = (id) => {
+    var item = this.getItem(id);
+    var itemMap = {...this.state.itemMap};
+    var branch = {...this.state.branch};
+    
+
+    if(branch[item.parentId][id]) {
+      delete branch[item.parentId][id];
+    }
+
+    if(itemMap[id]) {
+      delete itemMap[id];
+    }
+
+    this.setState({
+      branch: branch,
+      itemMap: itemMap
+    },  () => {console.log(this.state)});
   }
 
 
