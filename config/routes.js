@@ -14,6 +14,7 @@ module.exports = [
   /**
    * Render the index view
    */
+
   {
     method: 'GET',
     path: '/',
@@ -24,21 +25,17 @@ module.exports = [
    * Constrain the DefaultController.info handler to accept only GET requests.
    */
   {
-    method: [ 'GET' ],
-    path: '/api/v1/default/info',
-    handler: 'DefaultController.info'
+    method: 'GET',
+    path: '/home',
+    handler: 'ViewController.index'
   },
 
-  {
-    method: 'DEL',
-    path: '/api/v1/todo/clear_completed',
-    handler: 'TodoController.clearCompleted'
-  },
 
   {
-    method: [ 'PUT' ],
-    path: '/api/v1/todo/toggle_all',
-    handler: 'TodoController.toggleAll'
-  }
+    method: 'GET',
+    path: '/components',
+    handler: 'ViewController.index'
+  },
+
 
 ]

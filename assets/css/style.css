@@ -519,6 +519,13 @@ body {
   background-size: cover;
 }
 
+.mainWrapper {
+  height: 100%;
+  width: 100%;
+  padding-top: 40px;
+;
+}
+
 .al-header {
   display: block;
   height: 49px;
@@ -572,23 +579,6 @@ body {
   padding-left: 15px;
   padding-right: 15px; }
 
-.content {
-  padding: 66px 0;
-  margin-left: 250px;
-}
-
-.content__block {
-  padding: 25px 40px;
-}
-
-.content__header {
-  font: 24px 'Roboto', sans-serif;
-  font-weight: 700;
-  color: #fff;
-  opacity: 0.9;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
 
 .info-header {
   color: #fff;

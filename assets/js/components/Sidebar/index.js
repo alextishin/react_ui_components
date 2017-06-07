@@ -11,21 +11,21 @@ class Sidebar extends Component {
 
   state = {
     navItems: [
-      {id:1, pathname: '/', label: 'Home', icon: 'home' },
-      {id:2, pathname: '/dashboard/form_elements', label: 'Form Elements', icon: 'check-square ' },
-      {id:3, pathname: '/dashboard/tabs', label: 'Tabs', icon: 'columns ' },
-      {id:4, pathname: '/dashboard/tables', label: 'Tables', icon: 'table ' },
-      {id:5, pathname: '/dashboard/trees', label: 'Trees', icon: 'sitemap ' }
+      {id:2, pathname: '/components/form_elements', label: 'Form Elements', icon: 'check-square ' },
+      {id:3, pathname: '/components/tabs', label: 'Tabs', icon: 'columns ' },
+      {id:4, pathname: '/components/tables', label: 'Tables', icon: 'table ' },
+      {id:5, pathname: '/components/trees', label: 'Trees', icon: 'sitemap ' }
 
     ],
     selectedItem: 1,
     collapsed: false
   }
 
+
   isSelected(id) {
     return id === this.state.selectedItem ? 'sidebar__item--selected' : '';
   }
-  
+
 
   isCollapsed() {
     return this.state.collapsed;
@@ -61,12 +61,8 @@ class Sidebar extends Component {
   }
 
   render() {
-    // <div className="sidebar__toggle">
-    //   <i className="fa fa-bars fa-2x" onClick={this.toggle.bind(this)}></i>
-    // </div>
     return (
       <aside className={`sidebar ${this.isCollapsed() ? 'sidebar--collapsed' : ''}`}>
-
         <ul>
           {this.renderItems()}
         </ul>

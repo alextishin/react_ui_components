@@ -3,10 +3,9 @@
  */
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import PageTop from '../../components/PageTop'
 import Sidebar from '../../components/Sidebar'
 
-class Dashboard extends Component {
+class Components extends Component {
 
   static contextTypes = {
     router: PropTypes.object
@@ -19,15 +18,15 @@ class Dashboard extends Component {
   //     this.context.router.push('/signin');
   //   }
   // }
+  
 
   render () {
-    return <div>
-      <main className=''>
-        <PageTop />
+    return (
+      <main className='clearfix' style={{height: '100%'}}>
         <Sidebar />
         {this.props.children}
       </main>
-    </div>
+    )
   }
 }
 
@@ -38,4 +37,4 @@ function mapStateToProps(state, ownProps) {
 }
 
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Components);

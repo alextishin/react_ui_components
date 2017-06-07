@@ -161,7 +161,7 @@ class Tree extends Component {
     var item = this.getItem(id);
     var itemMap = {...this.state.itemMap};
     var branch = {...this.state.branch};
-    
+
 
     if(branch[item.parentId][id]) {
       delete branch[item.parentId][id];

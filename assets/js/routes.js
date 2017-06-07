@@ -3,7 +3,8 @@ import { Route, IndexRedirect } from 'react-router';
 import App from './containers/App/index'
 import SignUp from './containers/SignUp'
 import SignIn from './containers/SignIn'
-import Dashboard from './containers/Dashboard'
+import Home from './containers/Home'
+import Components from './containers/Components'
 import FormElements from './containers/FormElements'
 import TabsContainer from './containers/TabsContainer'
 import TablesContainer from './containers/TablesContainer'
@@ -13,8 +14,8 @@ import TreesContainer from './containers/TreesContainer'
 
 export default (
   <Route path="/" component={App}>
-    <IndexRedirect to="dashboard" />
-    <Route path="dashboard" component={Dashboard}>
+    <Route path="home" component={Home}/>
+    <Route path="components" component={Components}>
       <Route path="form_elements" component={FormElements}></Route>
       <Route path="tabs" component={TabsContainer}></Route>
       <Route path="tables" component={TablesContainer}></Route>
@@ -23,4 +24,5 @@ export default (
     <Route path="signup" component={SignUp} />
     <Route path="signin" component={SignIn} />
   </Route>
+
 )

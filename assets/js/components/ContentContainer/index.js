@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
+import './styles.css'
 
 class ContentContainer extends Component {
-  
+
   static propTypes = {
     title: React.PropTypes.string
   }
-  
+
   render = () => {
     return (
       <div className="content">
